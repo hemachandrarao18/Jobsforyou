@@ -1,0 +1,620 @@
+body {
+    margin: 0;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(248, 248, 252);
+    padding: 20px;
+    align-items: center;
+    height: 18px;
+}
+
+/* Logo */
+
+.logo {
+    height: 51px;
+    width: auto;
+}
+
+/* Navigation */
+
+.nav {
+    margin-left: 200px;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 45px;
+}
+
+.nav a {
+    color: rgb(52, 36, 36);
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Search box */
+
+.search-box {
+    margin-left: 20px;
+    position: relative;
+}
+
+.search-box input {
+    padding: 6px 10px;
+    border: none;
+    outline: none;
+    display: none;
+}
+
+.search-box i {
+    color: rgb(43, 39, 39);
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 38px;
+    margin-top: 4px;
+}
+
+/* Search popup */
+
+.search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-content {
+    background: white;
+    padding: 10px 45px 10px 2px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 11px;
+}
+
+.search-content input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 99px;
+}
+
+.search-content i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Menu button */
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+    .header {
+        flex-direction: row;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .search-box {
+        margin-left: 0;
+    }
+
+}
+
+.container {
+    text-align: center;
+    min-height: 270px;
+    /* margin-top: 10px; */
+    background: linear-gradient(135deg, #51d9de, #0ac66e);
+    padding-top: 11px;
+}
+
+.H {
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+.sea {
+    border: none;
+    border-radius: 20px;
+    padding: 11px 12px;
+    width: 60%;
+    max-width: 400px;
+}
+
+.sear {
+    border: none;
+    border-radius: 20px;
+    padding: 11px 13px;
+    font-weight: bold;
+    background-color: rgb(6, 137, 100);
+    color: rgb(24, 12, 12);
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.sear:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.parent1 {
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+
+    background: #fcf7f7;
+    border: #fcf7f7;
+    border-radius: 12px;
+    margin-top: -117px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Default (Desktop → 4 boxes) */
+.child1 {
+    width: 23%;
+    height: 72px;
+    margin: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 10px;
+    background: white;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+
+    font-weight: 400;
+}
+
+.child1:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+#h1 {
+    background: linear-gradient(to right, rgb(114, 105, 235), rgb(2, 17, 155));
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+#h2 {
+    background: linear-gradient(to right, rgb(220, 105, 235), rgb(117, 2, 155));
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+#h3 {
+    background: linear-gradient(to right, rgb(240, 142, 107), rgb(186, 90, 17));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#h4 {
+    background: linear-gradient(to right, rgb(227, 114, 114), rgb(201, 5, 5));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#h5 {
+    background: linear-gradient(to right, rgb(92, 241, 110), rgb(6, 157, 49));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#h6 {
+    background: linear-gradient(to right, rgb(113, 222, 232), rgb(5, 113, 171));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#h7 {
+    background: linear-gradient(to right, rgb(239, 243, 48), rgb(142, 160, 5));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#h8 {
+    background: linear-gradient(to right, rgb(220, 127, 241), rgb(226, 5, 238));
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+/* Tablet → 2 boxes */
+@media (max-width:768px) {
+    .child1 {
+        width: 45%;
+    }
+}
+
+/* Mobile → 1 box */
+@media (max-width:480px) {
+    .child1 {
+        width: 90%;
+    }
+}
+
+@media (max-width:480px) {
+
+    .H {
+        font-size: 22px;
+    }
+
+    .sea {
+        width: 70%;
+    }
+
+    .sear {
+        margin-top: 10px;
+    }
+
+    .parent1 {
+        margin-top: -135px;
+        padding: 10px;
+    }
+
+}
+
+.parent2 {
+    width: 100%;
+    margin: auto;
+    /* padding:15px; */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.child2 {
+    width: 10%;
+    height: 110px;
+    margin: 3px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 10px;
+    background: white;
+    border: 1px solid lightgray;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.child2:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+#h9 {
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+/* Tablet → 2 boxes */
+@media (max-width:768px) {
+    .child2 {
+        width: 45%;
+    }
+}
+
+/* Mobile → 1 box */
+@media (max-width:480px) {
+    .child2 {
+        width: 45%;
+    }
+}
+
+.parent3 {
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.child3 {
+    width: 29%;
+    height: 45px;
+    margin-top: 18px;
+    margin-right: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgb(94, 189, 244), rgb(0, 76, 255));
+    border: 1px solid lightgray;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.child3:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.a1 {
+    color: whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.a1:hover {
+    text-decoration: none;
+}
+
+#a2 {
+    background: linear-gradient(135deg, rgb(76, 221, 78), rgb(4, 206, 4));
+    color: whitesmoke;
+}
+
+#a3 {
+    background: linear-gradient(135deg, rgb(241, 78, 78), rgb(229, 25, 25));
+    color: whitesmoke;
+}
+
+.parent4 {
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.child4 {
+    width: 30%;
+    height: 350px;
+    margin-top: 18px;
+    margin-left: 2px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    border-radius: 11px;
+    background: white;
+    border: 1px solid lightgray;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.headings {
+    width: 100%;
+    height: 36px;
+
+    display: flex;
+    justify-content: center;
+
+    background: linear-gradient(135deg, rgb(78, 236, 183), rgb(3, 144, 111));
+    border-radius: 9px 9px 0px 0px;
+}
+
+.heading {
+    margin-top: 4px;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.parent5 {
+    width: 94%;
+    margin: auto;
+
+    border: 2px solid #0ebb8a;
+    border-radius: 11px;
+}
+
+.child5 {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+
+    background: #0ebb8a;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.pass {
+    margin-top: 4px;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.para {
+    font-size: 13px;
+    text-align: center;
+    font-weight: 350;
+    padding: 6px;
+}
+
+.parent6 {
+    width: 94%;
+    margin: auto;
+    height: 200px;
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 9px;
+
+    border-radius: 15px;
+    background: white;
+    border: 1px solid lightgray;
+
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.child6 {
+    width: 20%;
+    margin-top: 6px;
+    z-index: 2;
+    position: relative;
+}
+
+h4 {
+    font-weight: 500;
+    color: rgb(72, 63, 63);
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    font-size: small;
+    color: rgb(99, 92, 92);
+    align-items: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: small;
+    color: rgb(99, 92, 92);
+}
+
+li {
+    list-style: none;
+}
+
+.parent7 {
+    width: 100%;
+    height: 320px;
+    margin-top: -150px;
+    z-index: 1;
+
+    background: rgb(29, 35, 36);
+}
+
+.fh {
+    color: rgb(199, 195, 195);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 150px;
+    font-weight: 500;
+}
+
+.fp {
+    color: rgb(209, 203, 203);
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    padding-top: 18px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.social {
+    text-decoration: none;
+}
+
+.icon {
+    background: whitesmoke;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.icon:hover {
+    background: lightgray;
+}
+

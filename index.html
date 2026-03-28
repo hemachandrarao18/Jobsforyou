@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Java Script</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="S.css">
+</head>
+
+<body>
+  <header class="header">
+
+    <div class="log">
+      <img class="logo" src="./s/logos.png">
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      ☰
+    </div>
+
+    <nav class="nav" id="navMenu">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Govt Jobs</a></li>
+        <li><a href="">Private Jobs</a></li>
+        <li><a href="">Admit cards</a></li>
+        <li><a href="">Results</a></li>
+        <li><a href="">Answer key</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search..." id="jobSearch">
+      <i class="fas fa-search" id="openSearch"></i>
+    </div>
+
+  </header>
+
+  <div class="search-popup" id="searchPopup">
+    <div class="search-content">
+      <input type="text" placeholder="Search here...">
+      <i class="fas fa-times" id="closeSearch"></i>
+    </div>
+  </div>
+
+  <script>
+
+    const openBtn = document.getElementById("openSearch");
+    const closeBtn = document.getElementById("closeSearch");
+    const popup = document.getElementById("searchPopup");
+
+    openBtn.onclick = function () {
+      popup.style.display = "flex";
+    }
+
+    closeBtn.onclick = function () {
+      popup.style.display = "none";
+    }
+
+    const searchInput = document.getElementById("jobSearch");
+
+    searchInput.addEventListener("keyup", function () {
+
+      let filter = searchInput.value.toLowerCase();
+
+      let jobs = document.querySelectorAll(".child1");
+
+      jobs.forEach(function (job) {
+
+        let text = job.textContent.toLowerCase();
+
+        if (text.includes(filter)) {
+          job.style.display = "block";
+        } else {
+          job.style.display = "none";
+        }
+
+      });
+
+    });
+
+
+    const menuBtn = document.getElementById("menuToggle");
+    const navMenu = document.querySelector(".nav");
+
+    menuBtn.onclick = function () {
+      navMenu.classList.toggle("active");
+    }
+
+  </script>
+  <div class="container">
+    <h2 class="H">#1 Job Portal for Job Seekeers</h2>
+    <input type="text" placeholder="Type here...." class="sea">
+    <button class="sear" type="submit">Search</button>
+  </div>
+  <div class="parent1">
+    <div id="h1" class="child1">
+      <a href="" id="h1">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h2" class="child1">
+      <a href="" id="h2">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h3" class="child1">
+      <a href="" id="h3">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h4" class="child1">
+      <a href="" id="h4">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h5" class="child1">
+      <a href="" id="h5">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h6" class="child1">
+      <a href="" id="h6">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h7" class="child1">
+      <a href="" id="h7">SSC Gd Notification 2026 Released</a>
+    </div>
+    <div id="h8" class="child1">
+      <a href="" id="h8">SSC Gd Notification 2026 Released</a>
+    </div>
+  </div><br>
+  <div class="parent2">
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/Police.svg" width="51">Police Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/SSC.svg" width="51">SSC Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/Defence.svg" width="51">Defence Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/bank.svg" width="51">Bank Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/train.svg" width="51">Railway Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/wfh.svg" width="51">IT/Non IT Jobs</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/computer.svg" width="51">WFH</a>
+    </div>
+    <div id="h9" class="child2">
+      <a href="" id="h9"><img src="./s/test.svg" width="51">Entrance Exams</a>
+    </div>
+  </div><br>
+  <div class="parent3"><br>
+    <div id="a1" class="child3">
+      <a href="" class="a1"><img src="./s/telegram.svg" width="32">Join Telegram</a>
+    </div>
+    <div id="a2" class="child3">
+      <a href="" class="a1"><img src="./s/whatsapp.svg" width="32">Join WhatsApp</a>
+    </div>
+    <div id="a3" class="child3">
+      <a href="" class="a1"><img src="./s/youtube.svg" width="32">Join Youtube</a>
+    </div>
+  </div><br>
+  <div class="parent4">
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">Latest Notifications</h2>
+      </div>
+
+      <ul>
+        <?php
+             $args = array(
+             'category_name' => 'latest-notifications',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">Admit Cards</h2>
+      </div>
+
+      <ul>
+        <?php
+             $args = array(
+             'category_name' => 'admit-cards',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">Answer Key</h2>
+      </div>
+      <ul>
+
+        <?php
+             $args = array(
+             'category_name' => 'answer-key',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">Results</h2>
+      </div>
+
+      <ul>
+        <?php
+             $args = array(
+             'category_name' => 'results',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">IT/Non IT Jobs</h2>
+      </div>
+
+      <ul>
+        <?php
+             $args = array(
+             'category_name' => 'private-jobs',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+
+    <div id="list" class="child4">
+      <div class="headings">
+        <h2 class="heading">Work From Home</h2>
+      </div>
+
+      <ul>
+        <?php
+             $args = array(
+             'category_name' => 'work-from-home',
+             'posts_per_page' => 6
+             );
+
+            $query = new WP_Query($args);
+
+            while($query->have_posts()) : $query->the_post();
+            ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+
+        <?php endwhile; wp_reset_postdata(); ?>
+      </ul>
+    </div>
+  </div><br><br>
+
+  <div class="parent5">
+    <div class="child5">
+      <h2 class="pass">Jobsforyou</h2>
+    </div>
+    <p class="para">Jobsforyou, the popular online platform dedicated to providing information on government job
+      opportunities and exam results, continues to play a vital role in empowering job seekers in 2025. As the demand
+      for secure and stable employment remains high, this article explores the significance of Sarkari Result in
+      assisting aspirants and highlights the latest developments in government job recruitment. In a world characterized
+      by economic uncertainties, government jobs continue to be highly sought after by millions of individuals. The
+      stability, security, and attractive perks associated with such positions have made them an attractive career
+      choice. In 2025, as the job market remains competitive, the demand for government jobs has only increased.</p>
+  </div><br><br>
+
+  <div class="parent5">
+    <div class="child5">
+      <h2 class="pass">Why Should I Consider a Government Job?</h2>
+    </div>
+    <p class="para">Job Security and Stability: Government jobs are known for their stability and long-term security.
+      Unlike many private sector positions that may be subject to economic fluctuations or company downsizing,
+      government jobs provide a sense of stability, often with tenure and job protection. This security allows employees
+      to plan for their future with confidence. Attractive Benefits and Perks: Government jobs often come with a
+      comprehensive benefits package. These benefits can include healthcare coverage, retirement plans, paid leave,
+      housing allowances, and other perks. Additionally, government jobs often offer regular salary increments and
+      promotions based on performance and experience, providing financial security and growth opportunities. Work-Life
+      Balance: Many government jobs prioritize work-life balance and offer fixed working hours, flexible schedules, and
+      generous vacation and leave policies. This allows employees to maintain a healthy work-life integration, spend
+      time with family and pursue personal interests outside of work.
+
+      What Kind of Government Jobs Can I Get?</p>
+  </div><br><br>
+
+  <div class="parent5">
+    <div class="child5">
+      <h2 class="pass">What Kind of Government Jobs Can I Get?</h2>
+    </div>
+    <p class="para">Civil Services: The Indian Administrative Service (IAS), Indian Police Service (IPS), and Indian
+      Foreign Service (IFS) are prestigious civil service positions that involve administrative, law enforcement, and
+      diplomatic roles respectively. These positions are filled through competitive examinations conducted by the Union
+      Public Service Commission (UPSC). Banking and Finance: Government banks such as the State Bank of India (SBI) and
+      Reserve Bank of India (RBI) offer positions for Probationary Officers (PO), Clerks, and Specialist Officers (SO).
+      These jobs provide opportunities in areas like banking, finance, accounting, and economics.</p>
+  </div><br><br>
+
+  <footer>
+    <div class="parent6">
+      <div class="child6">
+        <h4>ABOUT US</h4>
+        <p>Stay informed about the latest government job updates with our Sarkari Job Update website. We provide timely
+          and accurate information on upcoming government job vacancies, application deadlines, exam schedules, and
+          more.</p>
+      </div>
+      <div class="child6">
+        <h4>CATEGORIES</h4>
+        <li><a href="">Govt Jobs</a></li>
+        <li><a href="">Private Jobs</a></li>
+        <li><a href="">Admit cards</a></li>
+        <li><a href="">Answer key</a></li>
+        <li><a href="">Results</a></li>
+      </div>
+      <div class="child6">
+        <h4>QUICK LINKS</h4>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact us</a></li>
+        <li><a href="">Disclaimer</a></li>
+        <li><a href="">Privacy Policy</a></li>
+        <li><a href="">Terms and Conditions</a></li>
+      </div>
+      <div class="child6">
+        <h4>CONTACT US</h4>
+        <li><img src="./s/phone.svg" width="16"><a href="">+91 9999999999</a> </li>
+        <li><img src="./s/email.svg" width="16"><a href="">contact@example.com</a></li>
+        <li><img src="./s/map.svg" width="16">
+          <p>Sadanandanagar, Bennigana Halli, Bengaluru, Karnataka 560016, India</p>
+        </li>
+      </div>
+    </div>
+
+    <div class="parent7">
+      <h1 class="fh">----------------- Jobsforyou ----------------</h1>
+      <div class="socials">
+        <a class="social" href=""><img class="icon" src="./s/gram.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/what.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/tube.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/instagram.svg" width="29"></a>
+      </div>
+      <p class="fp">@ 2026 Jobsforyou | All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
