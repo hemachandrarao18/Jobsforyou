@@ -23,6 +23,7 @@ body {
 
 .nav {
     margin-left: 200px;
+    z-index: 999;
 }
 
 .nav ul {
@@ -81,6 +82,25 @@ body {
     align-items: center;
 }
 
+.search-popup.active {
+    display: flex;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
 .search-content {
     background: white;
     padding: 10px 45px 10px 2px;
@@ -102,6 +122,27 @@ body {
     cursor: pointer;
 }
 
+#suggestions {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background: #f0f0f0;
+}
+
 /* Menu button */
 
 .menu-toggle {
@@ -121,7 +162,7 @@ body {
 
     .menu-toggle {
         display: block;
-        margin-left: 15px;
+        margin-right: -11px;
     }
 
     .nav {
@@ -144,7 +185,7 @@ body {
         margin-left: -180px;
     }
 
-    .logo{
+    .logo {
         margin-left: -11px;
     }
 
@@ -158,31 +199,45 @@ body {
 
     .menu-toggle {
         display: block;
-        margin-right: -54px;
+        margin-right: 3px;
+        cursor: pointer;
     }
 
     .nav {
-        display: none;
-        width: 100%;
-        margin-left: 0;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        /* hidden initially */
+        width: 70%;
+        height: 100vh;
+        background: rgb(164, 38, 190);
+        padding-top: 60px;
+        transition: 0.3s;
+        z-index: 999;
     }
 
     .nav ul {
         flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        gap: 20px;
+        padding-left: 20px;
+        color: whitesmoke;
     }
 
     .nav.active {
-        display: block;
+        left: 0;
+        /* slide in */
     }
 
     .search-box {
-        margin-left: -200px;
+        margin-left: -190px;
     }
 
-    .logo{
+    .logo {
         margin-left: -11px;
+    }
+
+    .nav a {
+        color: whitesmoke;
     }
 
 }
@@ -234,6 +289,7 @@ body {
         padding: 9px 12px;
         border-radius: 9px;
     }
+
 }
 
 .parent1 {
@@ -252,6 +308,12 @@ body {
     margin-top: -117px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
+}
+
+@media (max-width:480px) {
+    .parent1 {
+        margin-top: -190px;
+    }
 }
 
 /* Default (Desktop → 4 boxes) */
@@ -339,24 +401,41 @@ body {
     .child1 {
         width: 45%;
     }
-    #h1{
-        font-size: 14px;
-    }#h2{
-        font-size: 14px;
-    }#h3{
-        font-size: 14px;
-    }#h4{
-        font-size: 14px;
-    }#h5{
-        font-size: 14px;
-    }#h6{
-        font-size: 14px;
-    }#h7{
-        font-size: 14px;
-    }#h8{
-        font-size: 14px;
-    }#h9{
-        font-size: 14px;
+
+    #h1 {
+        font-size: 13px;
+    }
+
+    #h2 {
+        font-size: 13px;
+    }
+
+    #h3 {
+        font-size: 13px;
+    }
+
+    #h4 {
+        font-size: 13px;
+    }
+
+    #h5 {
+        font-size: 13px;
+    }
+
+    #h6 {
+        font-size: 13px;
+    }
+
+    #h7 {
+        font-size: 13px;
+    }
+
+    #h8 {
+        font-size: 13px;
+    }
+
+    #h9 {
+        font-size: 13px;
     }
 }
 
@@ -446,7 +525,8 @@ body {
         width: 27%;
         height: 90px;
     }
-    #h9{
+
+    #h9 {
         font-size: 12px;
     }
 }
@@ -472,12 +552,50 @@ body {
     align-items: center;
     text-align: center;
 
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
     border-radius: 15px;
     background: linear-gradient(135deg, rgb(94, 189, 244), rgb(0, 76, 255));
     border: 1px solid lightgray;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
+}
+
+.child3::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 15px;
+
+    background: conic-gradient(
+            orange,
+            yellow,
+            green,
+            cyan,
+            violet);
+
+    animation: rotateBorder 3s linear infinite;
+    z-index: -1;
+}
+
+/* inner background fix */
+.child3::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: inherit;
+    border-radius: 13px;
+    z-index: -1;
+}
+
+/* animation */
+@keyframes rotateBorder {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .child3:hover {
@@ -517,11 +635,11 @@ body {
         border-radius: 11px;
     }
 
-    .a1{
+    .a1 {
         font-size: 11px;
     }
 
-    #so{
+    #so {
         width: 24px;
     }
 
@@ -619,8 +737,8 @@ body {
     padding: 6px;
 }
 
-@media (max-width:480px){
-    .pass{
+@media (max-width:480px) {
+    .pass {
         font-size: 20px;
         text-align: center;
         margin-top: 6px;
@@ -690,15 +808,15 @@ li {
     }
 
     a {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     h4 {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     p {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -754,16 +872,22 @@ li {
 .icon:hover {
     background: lightgray;
 }
+
 @media (max-width:480px) {
-    .parent7{
-        height: auto;
+    .parent7 {
+        height: 270px;
     }
-    
+
     .fh {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .fp {
         margin-top: -6px;
+        font-size: 11px;
+    }
+
+    .socials img {
+        width: 24px;
     }
 }
