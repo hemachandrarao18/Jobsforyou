@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Jobsforyou</title>
+  <title>Java Script</title>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,20 @@
 </head>
 
 <body>
+
+  <div class="overlay" id="overlay"></div>
+
   <header class="header">
 
     <div class="log">
-      <img class="logo" src="logos.png">
+      <img class="logo" src="./s/logos.png">
     </div>
 
     <div class="menu-toggle" id="menuToggle">
       ☰
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <nav class="nav" id="navMenu">
@@ -39,9 +45,14 @@
 
   <div class="search-popup" id="searchPopup">
     <div class="search-content">
-      <input type="text" placeholder="Search here...">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search here..." id="popupSearch">
       <i class="fas fa-times" id="closeSearch"></i>
+
+      <!-- Suggestions -->
+      <div id="suggestions"></div>
     </div>
+  </div>
   </div>
 
   <script>
@@ -51,42 +62,112 @@
     const popup = document.getElementById("searchPopup");
 
     openBtn.onclick = function () {
-      popup.style.display = "flex";
+      popup.classList.add("active");
     }
 
     closeBtn.onclick = function () {
-      popup.style.display = "none";
+      popup.classList.remove("active");
     }
 
-    const searchInput = document.getElementById("jobSearch");
+    popup.onclick = function (e) {
+      if (e.target === popup) {
+        popup.classList.remove("active");
+      }
+    }
 
-    searchInput.addEventListener("keyup", function () {
+    const searchInput = document.getElementById("popupSearch");
+    const suggestionsBox = document.getElementById("suggestions");
 
-      let filter = searchInput.value.toLowerCase();
+    function filterJobs() {
+      let filter = searchInput.value.toLowerCase().trim();
+      let jobs = document.querySelectorAll(".child4");
 
-      let jobs = document.querySelectorAll(".child1");
+      suggestionsBox.innerHTML = "";
 
       jobs.forEach(function (job) {
+        let link = job.querySelector("a");
+        let title = link.textContent.toLowerCase();
 
-        let text = job.textContent.toLowerCase();
+        // show/hide posts
+        if (title.includes(filter)) {
+          job.style.display = "flex";
 
-        if (text.includes(filter)) {
-          job.style.display = "block";
+          // create suggestion
+          let div = document.createElement("div");
+          div.classList.add("suggestion-item");
+          div.textContent = link.textContent;
+
+          // click → open link
+          div.onclick = function () {
+            window.location.href = link.href;
+          };
+
+          suggestionsBox.appendChild(div);
+
         } else {
           job.style.display = "none";
         }
-
       });
 
-    });
+      // empty search → reset
+      if (filter === "") {
+        jobs.forEach(job => job.style.display = "flex");
+        suggestionsBox.innerHTML = "";
+      }
+    }
 
+    searchInput.addEventListener("keyup", filterJobs);
+
+    // icon click ki kuda search run cheyyi
+    openBtn.addEventListener("click", function () {
+      popup.classList.add("active");
+      filterJobs(); // optional
+    });
 
     const menuBtn = document.getElementById("menuToggle");
     const navMenu = document.querySelector(".nav");
+    const overlay = document.getElementById("overlay");
 
+    let startX = 0;
+    let endX = 0;
+
+    // Toggle click
     menuBtn.onclick = function () {
       navMenu.classList.toggle("active");
+      overlay.classList.toggle("active");
+      menuBtn.classList.toggle("active");
     }
+
+    // Close when clicking outside
+    overlay.onclick = function () {
+      navMenu.classList.remove("active");
+      overlay.classList.remove("active");
+      menuBtn.classList.remove("active");
+    }
+
+    // Swipe detection
+    document.addEventListener("touchstart", function (e) {
+      startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener("touchend", function (e) {
+      endX = e.changedTouches[0].clientX;
+
+      // Swipe right → open
+      if (startX < 50 && endX > 150) {
+        navMenu.classList.add("active");
+        overlay.classList.add("active");
+        menuBtn.classList.add("active");
+      }
+
+      // Swipe left → close
+      if (startX > 150 && endX < 50) {
+        navMenu.classList.remove("active");
+        overlay.classList.remove("active");
+        menuBtn.classList.remove("active");
+      }
+    });
+  </script>
 
   </script>
   <div class="container">
@@ -122,39 +203,39 @@
   </div><br>
   <div class="parent2">
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="Police.svg" width="51">Police Jobs</a>
+      <a href="" id="h9"><img src="./s/Police.svg" width="51">Police Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="SSC.svg" width="51">SSC Jobs</a>
+      <a href="" id="h9"><img src="./s/SSC.svg" width="51">SSC Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="Defence.svg" width="51">Defence Jobs</a>
+      <a href="" id="h9"><img src="./s/Defence.svg" width="51">Defence Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="bank.svg" width="51">Bank Jobs</a>
+      <a href="" id="h9"><img src="./s/bank.svg" width="51">Bank Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="train.svg" width="51">Railway Jobs</a>
+      <a href="" id="h9"><img src="./s/train.svg" width="51">Railway Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="wfh.svg" width="51">IT/Non IT Jobs</a>
+      <a href="" id="h9"><img src="./s/wfh.svg" width="51">IT/Non IT Jobs</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="computer.svg" width="51">WFH</a>
+      <a href="" id="h9"><img src="./s/computer.svg" width="51">WFH</a>
     </div>
     <div id="h9" class="child2">
-      <a href="" id="h9"><img src="test.svg" width="51">Entrance Exams</a>
+      <a href="" id="h9"><img src="./s/test.svg" width="51">Entrance Exams</a>
     </div>
   </div><br>
   <div class="parent3"><br>
     <div id="a1" class="child3">
-      <a href="" class="a1"><img src="telegram.svg" width="32">Join Telegram</a>
+      <a href="" class="a1"><img src="./s/telegram.svg" width="32" id="so">Join Telegram</a>
     </div>
     <div id="a2" class="child3">
-      <a href="" class="a1"><img src="whatsapp.svg" width="32">Join WhatsApp</a>
+      <a href="" class="a1"><img src="./s/whatsapp.svg" width="32" id="so">Join WhatsApp</a>
     </div>
     <div id="a3" class="child3">
-      <a href="" class="a1"><img src="youtube.svg" width="32">Join Youtube</a>
+      <a href="" class="a1"><img src="./s/youtube.svg" width="32" id="so">Join Youtube</a>
     </div>
   </div><br>
   <div class="parent4">
@@ -390,9 +471,9 @@
       </div>
       <div class="child6">
         <h4>CONTACT US</h4>
-        <li><img src="phone.svg" width="16"><a href="">+91 9999999999</a> </li>
-        <li><img src="email.svg" width="16"><a href="">contact@example.com</a></li>
-        <li><img src="map.svg" width="16">
+        <li><img src="./s/phone.svg" width="16"><a href="">+91 9999999999</a> </li>
+        <li><img src="./s/email.svg" width="16"><a href="">contact@example.com</a></li>
+        <li><img src="./s/map.svg" width="16">
           <p>Sadanandanagar, Bennigana Halli, Bengaluru, Karnataka 560016, India</p>
         </li>
       </div>
@@ -401,10 +482,10 @@
     <div class="parent7">
       <h1 class="fh">----------------- Jobsforyou ----------------</h1>
       <div class="socials">
-        <a class="social" href=""><img class="icon" src="gram.svg" width="29"></a>
-        <a class="social" href=""><img class="icon" src="what.svg" width="29"></a>
-        <a class="social" href=""><img class="icon" src="tube.svg" width="29"></a>
-        <a class="social" href=""><img class="icon" src="instagram.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/gram.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/what.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/tube.svg" width="29"></a>
+        <a class="social" href=""><img class="icon" src="./s/instagram.svg" width="29"></a>
       </div>
       <p class="fp">@ 2026 Jobsforyou | All Rights Reserved.</p>
     </div>
